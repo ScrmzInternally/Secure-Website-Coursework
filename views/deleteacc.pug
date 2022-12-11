@@ -1,0 +1,16 @@
+extends layout
+include popup
+block content
+    head
+        link(rel='stylesheet', href='/css/deleteacc.css')
+    body
+        if error === true
+            +popupBox(errorText)
+        div(class="wrapper")
+            form.deleteForm(action='/deleteacc/submit' method='post')
+                p Deleting your account is irreversable. All of your likes, posts, and user data will be deleted. Please re-enter your password below to proceed.
+                input(type='hidden' name='csrf' value=csrf_token)
+                br
+                input.passInput(type='password' placeholder='Enter Password' name='psw' required='')
+                br
+                button.submitButton(type='submit') Submit

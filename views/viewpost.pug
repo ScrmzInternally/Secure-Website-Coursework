@@ -1,0 +1,34 @@
+extends layout
+block content
+    head
+        link(rel='stylesheet', href='/css/viewpost.css')
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js")
+        script(type='text/javascript', src='/js/likes.js')
+
+    body
+        div(class='wrapper')
+            p.postTitle= post.title
+            p.postUser= post.username
+            p.postContent= post.content
+            div.likeDiv
+                if auth === true
+                    img.likeIcon(id=post.post_id  src='../images/icons/like.png' onclick="socketLike('" + post.post_id + "," + user.user_id + "')")
+                    span.likeNumber= likes
+                else
+                    img.likeIcon(src='../images/icons/like.png' id=post.post_id alt='like' onclick="location.href = '/login'")
+                    span.likeNumber= likes
+            if mypost === true
+                form(action='/viewpost/delete' method='post')
+                    div.deleteDiv
+                        input(type='hidden' name='csrf' value=csrf_token)
+                        button.deleteButton(type='submit') Delete
+                form(action='/viewpost/edit' method='post')
+                    div.editDiv
+                        input(type='hidden' name='csrf' value=csrf_token)
+                        button.editButton(type='submit') Edit
+
+        
+
+        if bool === true
+            script.
+                loadLikesSingle(#{post.post_id});

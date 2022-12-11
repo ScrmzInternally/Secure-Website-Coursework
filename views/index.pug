@@ -1,0 +1,108 @@
+extends layout
+block content
+  head
+    link(rel='stylesheet', href='/css/index.css')
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js")
+    script(type='text/javascript', src='/js/likes.js')
+
+  body
+      p.popularHeading Most Popular Posts
+        div.container
+            div.left
+                a.popularTitle(href='/viewpost?id=' + posts[0].post_id)= posts[0].title
+                p.popularUser= posts[0].username
+                p.popularContent= posts[0].content
+                div.likeDiv
+                    if auth === true
+                        img.likeIcon(id=posts[0].post_id  src='../images/icons/like.png' onclick="socketLike('" + posts[0].post_id + "," + user.user_id + "')")
+                        span.likeNumber= likesdict[posts[0].post_id]
+                    else
+                        img.likeIcon(src='../images/icons/like.png' id=posts[0].post_id alt='like' onclick="location.href = '/login'")
+                        span.likeNumber= likesdict[posts[0].post_id]
+            div.middle
+                a.popularTitle(href='/viewpost?id=' + posts[1].post_id)= posts[1].title
+                p.popularUser= posts[1].username
+                p.popularContent= posts[1].content
+                div.likeDiv
+                    if auth === true
+                        img.likeIcon(id=posts[1].post_id src='../images/icons/like.png' onclick="socketLike('" + posts[1].post_id + "," + user.user_id + "')")
+                        span.likeNumber= likesdict[posts[1].post_id]
+                    else
+                        img.likeIcon(src='../images/icons/like.png' id=posts[1].post_id alt='like' onclick="location.href = '/login'")
+                        span.likeNumber= likesdict[posts[1].post_id]
+            div.right
+                a.popularTitle(href='/viewpost?id=' + posts[2].post_id)= posts[2].title
+                p.popularUser= posts[2].username
+                p.popularContent= posts[2].content
+                div.likeDiv
+                    if auth === true
+                        img.likeIcon(id=posts[2].post_id  src='../images/icons/like.png' onclick="socketLike('" + posts[2].post_id + "," + user.user_id + "')")
+                        span.likeNumber= likesdict[posts[2].post_id]
+                    else
+                        img.likeIcon(src='../images/icons/like.png' id=posts[2].post_id alt='like' onclick="location.href = '/login'")
+                        span.likeNumber= likesdict[posts[2].post_id]
+
+      p.recentHeading Most Recent Posts
+
+        div.recentBlog
+            a.recentTitle(href='/viewpost?id='+posts[3].post_id)= posts[3].title
+            p.recentUser= posts[3].username
+            p.recentContent= posts[3].content
+            div.likeDivRecent
+                if auth === true
+                    img.likeIconRecent(id=posts[3].post_id src='../images/icons/like.png' onclick="socketLike('" + posts[3].post_id + "," + user.user_id + "')")
+                    span.likeNumberRecent= likesdict[posts[3].post_id]
+                else
+                    img.likeIconRecent(src='../images/icons/like.png' id=posts[3].post_id alt='like' onclick="location.href = '/login'")
+                    span.likeNumberRecent= likesdict[posts[3].post_id]
+        div.recentBlog
+            a.recentTitle(href='/viewpost?id='+posts[4].post_id)= posts[4].title
+            p.recentUser= posts[4].username
+            p.recentContent= posts[4].content
+            div.likeDivRecent
+                if auth === true
+                    img.likeIconRecent(id=posts[4].post_id src='../images/icons/like.png' onclick="socketLike('" + posts[4].post_id + "," + user.user_id + "')")
+                    span.likeNumberRecent= likesdict[posts[4].post_id]
+                else
+                    img.likeIconRecent(src='../images/icons/like.png' id=posts[4].post_id alt='like' onclick="location.href = '/login'")
+                    span.likeNumberRecent= likesdict[posts[4].post_id]
+        div.recentBlog
+            a.recentTitle(href='/viewpost?id='+posts[5].post_id)= posts[5].title
+            p.recentUser= posts[5].username
+            p.recentContent= posts[5].content
+            div.likeDivRecent
+                if auth === true
+                    img.likeIconRecent(id=posts[5].post_id src='../images/icons/like.png' onclick="socketLike('" + posts[5].post_id + "," + user.user_id + "')")
+                    span.likeNumberRecent= likesdict[posts[5].post_id]
+                else
+                    img.likeIconRecent(src='../images/icons/like.png' id=posts[5].post_id alt='like' onclick="location.href = '/login'")
+                    span.likeNumberRecent= likesdict[posts[5].post_id]
+        div.recentBlog
+            a.recentTitle(href='/viewpost?id='+posts[6].post_id)= posts[6].title
+            p.recentUser= posts[6].username
+            p.recentContent= posts[6].content
+            div.likeDivRecent
+                if auth === true
+                    img.likeIconRecent(id=posts[6].post_id src='../images/icons/like.png' onclick="socketLike('" + posts[6].post_id + "," + user.user_id + "')")
+                    span.likeNumberRecent= likesdict[posts[6].post_id]
+                else
+                    img.likeIconRecent(src='../images/icons/like.png' id=posts[6].post_id alt='like' onclick="location.href = '/login'")
+                    span.likeNumberRecent= likesdict[posts[6].post_id]
+        div.recentBlog
+            a.recentTitle(href='/viewpost?id='+posts[7].post_id)= posts[7].title
+            p.recentUser= posts[7].username
+            p.recentContent= posts[7].content
+            div.likeDivRecent
+                if auth === true
+                    img.likeIconRecent(id=posts[7].post_id src='../images/icons/like.png' onclick="socketLike('" + posts[7].post_id + "," + user.user_id + "')")
+                    span.likeNumberRecent= likesdict[posts[7].post_id]
+                else
+                    img.likeIconRecent(src='../images/icons/like.png' id=posts[7].post_id alt='like' onclick="location.href = '/login'")
+                    span.likeNumberRecent= likesdict[posts[7].post_id]
+        
+
+        div.showMoreButtonDiv
+            button.showMoreButton#viewMoreButton(onclick="location.href='/search' + 'viewall'") View More...
+        if auth === true
+            script(type='text/javascript').
+                loadLikes(!{userslikes});

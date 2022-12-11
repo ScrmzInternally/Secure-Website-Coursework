@@ -1,0 +1,50 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+    script(src="https://code.jquery.com/jquery-1.10.2.js")
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  header
+    div(class="banner")
+      if auth === false
+        a(href='/')
+          img.logo(alt='Homepage' src='../images/headerlogo.png')
+        div(class='righthandside')
+          button.signinlink(onclick="location.href='/login'") Sign In/Register
+          div(class="searchbardiv")
+            img.searchicon(src='../images/icons/search.png' alt='searchIcon')
+            input.searchbar#searchBar(type='text' placeholder='Search' name='searchbar')
+      else
+        a(href='/')
+          img.logo(src='../images/headerlogo.png' alt='logo')
+        div(class='righthandside')
+          div(class='dropdown')
+            button.dropdownbutton= user.username
+              i.fa.fa-caret-down
+            div(class='dropdown-links')
+              a(href='/signout') Sign Out
+              a(href='/deleteacc') Delete Account
+          button.createpost(onclick="location.href='/post'") Create New Post
+          div(class="searchbardiv")
+            img.searchicon(src='../images/icons/search.png' alt='searchIcon')
+            input.searchbar#searchBar(type='text' placeholder='Search' name='searchbar' )
+
+  script.
+    document.getElementById('searchBar').addEventListener('keypress', (event) => {
+      if (event.key === "Enter") {
+        console.log('enter clicked');
+        const searchQuery = document.getElementById('searchBar').value;
+
+        if (searchQuery) {
+          location.href='/search' + searchQuery;
+        }    
+      } 
+    });
+
+  body
+    block content
+    footer
+      img.palette(src="/images/icons/palette.png")
+      p.footertext Made by Group 13 :)
+

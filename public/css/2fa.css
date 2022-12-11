@@ -1,0 +1,111 @@
+body {
+    overflow-y: scroll;
+}
+
+.banner {
+    background-color: #22a05a;
+    margin-bottom: 55px;
+}
+.logo {
+    width: 30%;
+}
+.righthandside {
+    float: right;
+}
+
+@media (max-width:1367px) { /* laptops */
+    .signinlink {vertical-align: -45px;}
+    .searchbardiv {vertical-align: -45px;}
+}
+@media (min-width:1367px) { /* desktops */
+    .signinlink {vertical-align: -60px;}
+    .searchbardiv {vertical-align: -60px;}
+}
+
+.signinlink {
+    background-color: #22a05a;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    border: 1px solid white;
+    padding: 10px 15px 10px 15px;
+    margin-right: 65px;
+    cursor: pointer;
+    display: inline;
+}
+.searchbardiv {
+    position: relative;
+    display: inline-block;
+    min-width: 100px;
+    padding-right: 25px;
+}
+.searchicon {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    width: 14px;
+}
+.searchbar {
+    border-radius: 5px;
+    border: 1px solid white;
+    height: 20px;
+    width: 80%;
+    padding: 2px 24px 2px 30px;
+    outline: 0;
+    background-color: #22a05a;
+    color: white;
+}
+.searchbardiv ::placeholder {
+    color: white;
+    opacity: 1;
+}
+.wrapper {
+    background-color:#444444;
+    text-align: center;
+    color: white;
+    width: 60%;
+    border-radius: 20px;
+    padding: 30px 15px 35px 50px;
+    margin: 0 auto 50px;
+}
+.wrapper p {
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+.code {
+    text-align: center;
+    padding: 5px;
+    color: #22a05a;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid #22a05a;
+    display: block;
+    font-size: large;
+    margin: auto auto 35px;
+}
+.wrapper ::placeholder {
+    color: #22a05a;
+    opacity: 1;
+
+}
+.submit {
+    margin: auto;
+    padding: 5px 15px 5px 15px;
+    display: block;
+    font-size: large;
+    background-color: #22a05a;
+    border-radius: 5px;
+    color: white;
+    border: 0 none;
+}
+
+.popupWrapper {
+    background-color:#444444;
+    text-align: center;
+    color: white;
+    width: 60%;
+    border-radius: 20px;
+    padding: 10px 10px 10px 10px;
+    margin: 0 auto 50px;
+}

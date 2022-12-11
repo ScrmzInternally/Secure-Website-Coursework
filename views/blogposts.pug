@@ -1,0 +1,29 @@
+extends layout
+block content
+    head
+        link(rel='stylesheet', href='/css/blogposts.css')
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js")
+        script(type='text/javascript', src='/js/likes.js')
+
+    body
+        if searchQuery === 'viewall'
+            p.viewAllHeading Showing All Posts
+        else
+            p.viewAllHeading='Results For Your Search "' + searchQuery + '"'
+
+    div.relevantPosts
+        each post in allPosts
+            div.postDiv
+                a.recentTitle(href='/viewpost?id='+post.post_id)= post.title
+                p.recentUser= post.username
+                p.recentContent= post.content
+                div.likeDivRecent
+                    if auth === true
+                        img.likeIconRecent(id=post.post_id src='../images/icons/like.png' onclick="socketLike('" + post.post_id + "," + user.user_id + "')")
+                        span.likeNumberRecent= likesdict[post.post_id]
+                    else
+                        img.likeIconRecent(src='../images/icons/like.png' id=post.post_id alt='like' onclick="location.href = '/login'")
+                        span.likeNumberRecent= likesdict[post.post_id]
+
+        script(type='text/javascript').
+            loadLikes(!{userslikes});

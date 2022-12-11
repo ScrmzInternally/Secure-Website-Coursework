@@ -1,0 +1,34 @@
+extends layout
+include popup
+block content
+    head
+        link(rel='stylesheet', href='/css/signup.css')
+
+    body
+        if error === true
+            +popupBox(errorText)
+        form.signupForm(action='/signup/submit', method='post')
+            input(type='hidden' name='csrf' value=csrf_token)
+            label(for='email')
+            b.emailLabel Email
+            br
+            input.emailInput(type='text' placeholder='Enter Email' name='email' required='')
+            br
+            label(for='uname' title="Username must only contain letters, numbers, and underscores, and must not be more than 20 characters.") Username
+            br
+            input.userInput(type='text' placeholder='Enter Username' name='uname' required='')
+            br
+            label(for='psw' title="Password should be at least 10 characters (NIST).") Password
+            br
+            input.passInput(type='password' placeholder='Enter Password' name='psw' required='')
+            br
+            div(class='privacyDiv')
+                input.privacyBox(type='checkbox' name='privacy' required='')
+                label(for='privacy')
+                b.privacyLabel I agree to the
+                | &nbsp
+                a.privacyLink(href='/privacypolicy') Privacy Policy
+                br
+            button.loginButton(type='submit') Sign Up
+
+

@@ -1,0 +1,26 @@
+extends layout
+block content
+    html
+        head
+            link(rel='stylesheet', href='/css/post.css')
+            script(src='https://www.google.com/recaptcha/api.js' async defer)
+        body
+            form.postForm(action='/post/edit-submit' method='post')
+                input(type='hidden' name='csrf' value=csrf_token)
+                label(for='title')
+                b.titleLabel Title
+                br
+                input.titleInput(type='text' placeholder='Title' name='title' maxlength='100' value=post.title required) 
+                br
+                label(for='content')
+                b.contentLabel Content
+                br
+                textarea.contentInput(name="content" required)=post.content 
+                br
+                div.text-center
+                    div.g-recaptcha(data-sitekey="6Ld4GXgfAAAAADIa4fOYTehVNy-TejRjstFDE8_Z")
+                br
+                button.formButton#cancelButton(type='button' onclick="location.href='/'") Cancel
+                button.formButton#editButton(type='submit') Edit
+                br
+

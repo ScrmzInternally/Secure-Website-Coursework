@@ -1,0 +1,16 @@
+extends layout
+include popup
+block content
+    -  const confirmation = `A verification code has been sent to ${user[0]}. Please enter it below:`;
+    head
+        link(rel='stylesheet', href='/css/2fa.css')
+
+    body
+        if error === true
+            +popupBox(errorText)
+        div(class="wrapper")
+            p= confirmation
+            form(action='/2fa/submit' method='post')
+                input(class="code" name="code" maxLength='6' type='text' placeholder='Verification Code')
+                button.submit Submit
+

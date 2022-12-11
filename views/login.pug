@@ -1,0 +1,26 @@
+extends layout
+include popup
+block content
+    head
+        link(rel='stylesheet', href='/css/login.css')
+    body
+        if error===true
+            +popupBox(errorText)
+
+        form.loginForm(action='/login/submit' method='post')
+            input(type='hidden' name='csrf' value=csrf_token)
+            label(for='uname')
+            b.userLabel Username
+            br
+            input.userInput(type='text' placeholder='Enter Username' name='uname' required='')
+            br
+            label(for='psw')
+            b.passLabel Password
+            br
+            input.passInput(type='password' placeholder='Enter Password' name='psw' required='')
+            br
+            button.loginButton(type='submit') Login
+            br
+            p.dontHave Dont have an account?
+            a.signUp(href='/signup') Sign up.
+

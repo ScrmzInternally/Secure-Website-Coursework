@@ -1,0 +1,138 @@
+body {
+    overflow-y: scroll;
+}
+
+.banner {
+    background-color: #22a05a;
+    margin-bottom: 55px;
+}
+.logo {
+    width: 30%;
+}
+.righthandside {
+    float: right;
+}
+
+@media (max-width:1367px) { /* laptops */
+    .signinlink {vertical-align: -45px;}
+    .searchbardiv {vertical-align: -45px;}
+}
+@media (min-width:1367px) { /* desktops */
+    .signinlink {vertical-align: -60px;}
+    .searchbardiv {vertical-align: -60px;}
+}
+
+
+.signinlink {
+    background-color: #22a05a;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    border: 1px solid white;
+    padding: 10px 15px 10px 15px;
+    margin-right: 65px;
+    cursor: pointer;
+    display: inline;
+}
+.searchbardiv {
+    position: relative;
+    display: inline-block;
+    min-width: 100px;
+    padding-right: 25px;
+}
+.searchicon {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    width: 14px;
+}
+.searchbar {
+    border-radius: 5px;
+    border: 1px solid white;
+    height: 20px;
+    width: 80%;
+    padding: 2px 24px 2px 30px;
+    outline: 0;
+    background-color: #22a05a;
+    color: white;
+}
+.searchbardiv ::placeholder {
+    color: white;
+    opacity: 1;
+}
+.loginForm {
+    background-color: #444444;
+    color: white;
+    border-radius: 30px;
+    width: 50%;
+    margin: 0 auto 60px;
+}
+.userLabel {
+    text-align: center;
+    font-size: x-large;
+    padding-top: 25px;
+    display: block;
+}
+.passLabel{
+    text-align: center;
+    font-size: x-large;
+    padding-top: 10px;
+    display: block;
+}
+.userInput {
+    margin: auto;
+    padding: 5px;
+    color: #22a05a;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid #22a05a;
+    display: block;
+}
+.passInput {
+    padding: 5px;
+    color: #22a05a;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid #22a05a;
+    display: block;
+    margin: auto auto 10px;
+}
+.loginButton {
+    margin: auto;
+    padding: 5px 15px 5px 15px;
+    display: block;
+    font-size: large;
+    background-color: #22a05a;
+    border-radius: 5px;
+    color: white;
+    border: 0 none;
+}
+.dontHave {
+    text-align: center;
+    padding-top: -5px;
+    font-size: larger;
+}
+.signUp {
+    color: #22a05a;
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 25px;
+    font-size: larger;
+}
+.loginForm ::placeholder {
+    color: #22a05a;
+    opacity: 1;
+}
+
+.popupWrapper {
+    background-color:#444444;
+    text-align: center;
+    color: white;
+    width: 60%;
+    border-radius: 20px;
+    padding: 10px 10px 10px 10px;
+    margin: 0 auto 50px;
+}
